@@ -55,4 +55,12 @@ class UserRepositoryTest {
         userRepository.deleteUser(userToDelete)
         Assert.assertFalse(userRepository.getUsers().contains(userToDelete))
     }
+
+    @Test
+    fun toggleUserActivation_shouldChangeActivationStatus() {
+        val user = userRepository.getUsers()[0]
+        val initialStatus = user.isActive
+        userRepository.toggleUserActivation(user)
+        assertEquals(user.isActive, !initialStatus!!)
+    }
 }

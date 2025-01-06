@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.openclassrooms.magicgithub.R
 import com.openclassrooms.magicgithub.model.User
 import com.openclassrooms.magicgithub.utils.UserDiffCallback
+import java.util.Collections
 
 class UserListAdapter(  // FOR CALLBACK ---
     callback1: List<User>,
@@ -21,6 +22,11 @@ class UserListAdapter(  // FOR CALLBACK ---
         val user = users[position]
         user.isActive = !user.isActive!!
         notifyItemChanged(position)
+    }
+
+    fun onItemMove(fromPosition: Int, toPosition: Int) {
+        Collections.swap(users, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
     }
 
     interface Listener {

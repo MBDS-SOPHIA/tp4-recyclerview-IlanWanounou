@@ -27,7 +27,7 @@ class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
     private fun configureRecyclerView() {
         adapter = UserListAdapter(getRepository().getUsers(), this)
         binding.activityListUserRv.adapter = adapter
-        val itemTouchHelper = ItemTouchHelper(SwipeToToggleCallback(adapter))
+        val itemTouchHelper = ItemTouchHelper(ItemMoveCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.activityListUserRv)
     }
 

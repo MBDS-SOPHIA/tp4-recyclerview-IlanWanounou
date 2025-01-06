@@ -1,5 +1,6 @@
 package com.openclassrooms.magicgithub.ui.user_list
 
+import android.net.Uri
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -24,5 +25,4 @@ class ListUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         username.text = user.login
         deleteButton.setOnClickListener { callback.onClickDelete(user) }
     }
-
 }
